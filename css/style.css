@@ -210,8 +210,9 @@ section { padding: var(--section-pad) 0; position: relative; }
   inset: 0 0 auto 0;
   z-index: 100;
   padding: 1.4rem 0;
-  transition: background-color 0.5s var(--ease), padding 0.5s var(--ease), border-color 0.5s var(--ease);
+  transition: background 0.5s var(--ease), padding 0.5s var(--ease), border-color 0.5s var(--ease);
   border-bottom: 1px solid transparent;
+  background: linear-gradient(180deg, rgba(15, 14, 12, 0.55) 0%, rgba(15, 14, 12, 0.28) 60%, rgba(15, 14, 12, 0) 100%);
 }
 .site-header.is-scrolled {
   background: rgba(246, 241, 230, 0.94);
@@ -224,34 +225,40 @@ section { padding: var(--section-pad) 0; position: relative; }
   display: flex; align-items: center; justify-content: space-between; gap: 2rem;
 }
 .brand {
-  display: inline-flex; flex-direction: column; gap: 2px;
+  display: inline-flex; flex-direction: column; gap: 3px;
   color: var(--paper);
-  transition: color 0.5s var(--ease);
+  transition: color 0.5s var(--ease), text-shadow 0.5s var(--ease);
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.55), 0 1px 2px rgba(0, 0, 0, 0.4);
 }
-.is-scrolled .brand { color: var(--ink); }
+.is-scrolled .brand { color: var(--ink); text-shadow: none; }
 .brand-name {
   font-family: var(--serif-jp);
   font-size: 1.05rem;
+  font-weight: 500;
   letter-spacing: 0.16em;
 }
 .brand-en {
   font-family: var(--serif-en); font-style: italic;
-  font-size: 10px; letter-spacing: 0.45em; text-transform: uppercase;
-  opacity: 0.85;
+  font-size: 10.5px; letter-spacing: 0.42em; text-transform: uppercase;
+  opacity: 0.96;
+  font-weight: 500;
 }
+.is-scrolled .brand-en { opacity: 0.7; font-weight: 400; }
 .nav-list {
   display: flex; gap: 2.4rem; list-style: none; margin: 0; padding: 0; align-items: center;
 }
 .nav-list a {
   font-family: var(--serif-en);
   font-size: 12px;
+  font-weight: 500;
   letter-spacing: 0.4em;
   text-transform: uppercase;
   color: var(--paper);
   position: relative; padding: 4px 0;
-  transition: color 0.4s var(--ease);
+  transition: color 0.4s var(--ease), text-shadow 0.5s var(--ease);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.35);
 }
-.is-scrolled .nav-list a { color: var(--ink); }
+.is-scrolled .nav-list a { color: var(--ink); text-shadow: none; font-weight: 400; }
 .nav-list a::after {
   content: ""; position: absolute; left: 0; right: 0; bottom: 0;
   height: 1px; background: currentColor;
@@ -276,12 +283,13 @@ section { padding: var(--section-pad) 0; position: relative; }
   width: 40px; height: 40px;
   position: relative;
   color: var(--paper);
-  transition: color 0.4s var(--ease);
+  transition: color 0.4s var(--ease), filter 0.4s var(--ease);
   z-index: 110;
+  filter: drop-shadow(0 1px 6px rgba(0,0,0,0.45));
 }
-.is-scrolled .hamburger { color: var(--ink); }
+.is-scrolled .hamburger { color: var(--ink); filter: none; }
 .hamburger span {
-  position: absolute; left: 8px; right: 8px; height: 1px;
+  position: absolute; left: 8px; right: 8px; height: 1.5px;
   background: currentColor; transition: 0.4s var(--ease);
 }
 .hamburger span:nth-child(1) { top: 15px; }
